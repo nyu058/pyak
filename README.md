@@ -5,7 +5,7 @@ Before you run make sure you have python3 installed, and then install the depend
 
 `pip3 install -r requirements.txt`
 
-example to press shift key every 15 minutes during work hour when slack is running (yes you know why I wrote this):
+example to press shift key every 15 minutes during work hour when slack is running：
 
 `python auto_key.py 900 -k shift -t 8:00 17:00 -p slack`
 
