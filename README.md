@@ -31,5 +31,7 @@ optional arguments:
                         Name or regex of running process to trigger the key press.
 ```
 
+安心摸鱼
+
 ### TODO
 add windows logging support
