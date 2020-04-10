@@ -12,14 +12,22 @@ import psutil
 import re
 import sys
 import os
+import platform
 
-#todo windows support
-logging.basicConfig(
+#todo windows logging support
+if platform.system() == "Windows":
+   logging.basicConfig(
     format='%(asctime)s %(levelname)-8s %(message)s',
     level=logging.DEBUG,
-    handlers=(logging.StreamHandler(sys.stdout), logging.FileHandler(
-        "{}/Library/Logs/auto_key_{}.log".format(os.getenv("HOME"), datetime.now().strftime("%Y-%m-%d_%H:%M:%S")))),
     datefmt='%Y-%m-%d %H:%M:%S')
+
+else: 
+    logging.basicConfig(
+        format='%(asctime)s %(levelname)-8s %(message)s',
+        level=logging.DEBUG,
+        handlers=(logging.StreamHandler(sys.stdout), logging.FileHandler(
+            "{}/Library/Logs/auto_key_{}.log".format(os.getenv("HOME"), datetime.now().strftime("%Y-%m-%d_%H:%M:%S")))),
+        datefmt='%Y-%m-%d %H:%M:%S')
 
 
 def auto_keypress(interval, key='shift', time_active=None, process=''):
