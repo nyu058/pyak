@@ -71,7 +71,7 @@ if __name__ == "__main__":
     parser.add_argument('interval', nargs='?', type=int, metavar='SECONDS',
                         help="Interval between each key press in seconds.")
     parser.add_argument('-k', '--key', nargs='?',
-                        default='shift', help="Key to press, i.e. shift, f1")
+                        default='shift', help="Key to press, i.e. shift, f1. Defaults to shift key if not provided")
     parser.add_argument('-t', '--time_active', nargs=2, metavar=('START', 'END',),
                         help="If provided, the key will only be pressed during the specified time. i.e -t 8:00 17:00")
     parser.add_argument('-p', '--process', nargs='?',
