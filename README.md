@@ -9,6 +9,8 @@ example to press shift key every 15 minutes during work hour when slack is runni
 
 `python auto_key.py 900 -k shift -t 8:00 17:00 -p slack`
 
+>**Note:** For macos you may need to allow the terminal to control your keyboard by going to **System Preferences -> Security & Privacy -> Privacy -> Accessibility** and make sure terminal (or whatever console you are running it from) is selected
+
 Detailed useage:
 
 ```
