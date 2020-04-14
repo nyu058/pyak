@@ -3,16 +3,19 @@ A boring project during covid-19
 Works with slack ( ͡° ͜ʖ ͡°)
 """
 
-import pyautogui
+
+import re
+import os
+import sys
 import time
+import psutil
 import logging
 import argparse
-from datetime import datetime
-import psutil
-import re
-import sys
-import os
 import platform
+import pyautogui
+import subprocess
+from datetime import datetime
+
 
 #todo windows logging support
 if platform.system() == "Windows":
@@ -41,9 +44,21 @@ def auto_keypress(interval, key='shift', time_active=None, process=''):
     else:
         logging.info(
             "Auto key presser started. '{}' key will be pressed for every {} seconds".format(key, interval))
+
+    sleep_time = interval
     while 1:
 
-        time.sleep(interval)
+        time.sleep(sleep_time)
+        inactive_time = get_inactive_time()
+
+        # reset the timer if system is active
+        if inactive_time < interval:
+            sleep_time = interval - inactive_time
+            logging.debug("Timer reset. Inactive time: {}".format(inactive_time))
+            continue
+        else:
+            sleep_time = interval
+
         if not time_active or time_in_range(start, end, datetime.now().time()):
             if not process or is_process_exist(process):
                 press_key(key)
@@ -65,6 +80,12 @@ def is_process_exist(process):
         return True
 
     return False
+
+def get_inactive_time():
+    # the value from this cmd resets ONLY if a REAL keyboard/mouse input is detected
+    cmd = "/usr/sbin/ioreg -c IOHIDSystem | /usr/bin/awk '/HIDIdleTime/ {print int($NF/1000000000); exit}'"
+    output = subprocess.check_output(cmd, shell=True)
+    return int(output.decode("utf-8"))
 
 
 def press_key(key, duration=None):
