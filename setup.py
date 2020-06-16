@@ -4,13 +4,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyak", 
-    version="0.0.1",
+    version="0.0.2",
     author="Nathan Yu",
     author_email="nathan5508@gmail.com",
     description="A Python cli tools to automically press a key after some time interval.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/nyu058/pyak",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
