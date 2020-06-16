@@ -1,6 +1,6 @@
 """
 A boring project during covid-19
-Works with slack ( ͡° ͜ʖ ͡°)
+Works with slack 
 """
 
 
@@ -94,10 +94,10 @@ def press_key(key, duration=None):
     logging.info("Pressed '{}' key".format(key))
 
 
-if __name__ == "__main__":
+def run():
     parser = argparse.ArgumentParser(description='Auto key presser')
 
-    parser.add_argument('interval', nargs='?', type=int, metavar='SECONDS',
+    parser.add_argument('interval', type=int, metavar='SECONDS',
                         help="Interval between each key press in seconds.")
     parser.add_argument('-k', '--key', nargs='?',
                         default='shift', help="Key to press, i.e. shift, f1. Defaults to shift key if not provided")
