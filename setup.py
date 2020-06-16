@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyak", 
-    version="0.0.2",
+    version="0.0.3",
     author="Nathan Yu",
     author_email="nathan5508@gmail.com",
     description="A Python cli tools to automically press a key after some time interval.",
