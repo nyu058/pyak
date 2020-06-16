@@ -1,11 +1,11 @@
 # pyak
 Python program to automically press a key after some time interval.
 
-`pyak == py auto key`
+pyak == py auto key
 
-Before you run make sure you have python3 installed, and then install the package in developer mode:
+Before you run make sure you have python3 installed, and then install the package:
 
-`pip3 install pyak`
+`pip install pyak`
 
 example to press shift key every 15 minutes during work hour when slack is running：
 
@@ -37,5 +37,3 @@ optional arguments:
 
 安心摸鱼
 
-### TODO
-add windows logging support
